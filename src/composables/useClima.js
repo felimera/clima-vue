@@ -20,12 +20,16 @@ export default function useClima() {
     } catch (error) {
       console.log("error", error);
     }
-
-    const mostrarClima = computed(() => Object.values(clima.value).length > 0);
   };
+
+  const mostrarClima = computed(() => Object.values(clima.value).length > 0);
+
+  const formatearTemperatura = (temperatura) => parseInt(temperatura - 273.15);
+
   return {
     obtenerClima,
     clima,
     mostrarClima,
+    formatearTemperatura,
   };
 }
